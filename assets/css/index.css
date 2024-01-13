@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #7710D1;
+    padding: 2rem 1rem;
+}
+
+
+.main-container {
+    display: flex;
+}
+
+.left-box, .right-box{
+    height: calc(100vh - 4rem);
+    width: 50vw;
+}
+
+.left-box {
+    background-color: #CC92FC;
+    border-radius: 2rem 0rem 0rem 2rem;
+}
+
+.right-box {
+    background-color: #B365F2;
+    border-radius: 0rem 2rem 2rem 0rem;
+}
