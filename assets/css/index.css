@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', Courier, monospace;
 }
 
 body {
@@ -17,6 +20,10 @@ body {
 .left-box, .right-box{
     height: calc(100vh - 4rem);
     width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .left-box {
@@ -28,3 +35,35 @@ body {
     background-color: #B365F2;
     border-radius: 0rem 2rem 2rem 0rem;
 }
+
+/* Left and Right Box */
+.player{
+    font-weight: bold;
+    font-size: 5.5vw;
+}
+
+.score-counter{
+    color: #6E25AA;
+    font-weight: bold;
+    font-size: 5.5vw;
+}
+
+.btn-contaner{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.button1, .button2, .button3{
+    display: flex;
+    background-color: #D9D9D9;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+    height: 10vh;
+    min-width: 9vw;
+}
+
+/* End of Left and Right Box */
