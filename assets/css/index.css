@@ -54,6 +54,11 @@ body {
     width: 60%;
 }
 
+img{
+    width: 5vw;
+    height: 7.5vh;
+}
+
 .button1, .button2, .button3{
     display: flex;
     background-color: #D9D9D9;
