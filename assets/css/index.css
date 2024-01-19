@@ -42,7 +42,7 @@ body {
     font-size: 5.5vw;
 }
 
-.score-counter{
+.computer-score-counter, .player-score-counter{
     color: #6E25AA;
     font-weight: bold;
     font-size: 5.5vw;

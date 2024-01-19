@@ -1,15 +1,24 @@
 const rockBtn = document.querySelector("#button1");
 const paperBtn = document.querySelector("#button2");
 const scissorsBtn = document.querySelector("#button3");
+const playerScorePara = document.getElementById('player-score-counter')
+const computerScorePara = document.getElementById('computer-score-counter')
+
+
+let playerScore = 0;
+let computerScore = 0;
+
 
 rockBtn.addEventListener("click", () => handleClick("ROCK"));
 paperBtn.addEventListener("click", () => handleClick("PAPER"));
 scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
 
 function handleClick(playerSelect) {
+
   const computerSelect = getChoices();
   getResult(playerSelect, computerSelect);
   compareChoice(playerSelect, computerSelect)
+  updateScore()
 
 }
 
@@ -58,8 +67,31 @@ function compareChoice(playerSelect, computerSelect){
   }
   else if((playerSelect === "ROCK" && computerSelect === "SCISSORS") || (playerSelect === "PAPER" && computerSelect === "ROCK") || (playerSelect === "SCISSORS" && computerSelect === "PAPER")){
     console.log("Player WINS");
+    playerScore++;
+    console.log(`Player Score = ${playerScore}`);
+    console.log(`Computer Score = ${computerScore}`);
+
+    if(isGameOver()){
+      console.log("WE HAVE A WINNER")
+    }
   }
   else{
     console.log("COMPUTER WINS");
+    computerScore++;
+    console.log(`Player Score = ${playerScore}`);
+    console.log(`Computer Score = ${computerScore}`);
+
+    if(isGameOver()){
+      console.log("WE HAVE A WINNER")
+    }
   }
+}
+
+function updateScore(){
+  playerScorePara.textContent = `${playerScore}`
+  computerScorePara.textContent = `${computerScore}` 
+} 
+
+function isGameOver(){
+  return playerScore === 3 || computerScore === 3
 }
