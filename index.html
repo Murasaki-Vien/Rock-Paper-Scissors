@@ -9,10 +9,14 @@
   </head>
   <body>
     <div class="main-container">
+      <div id="announceDiv" class="announcer"> Choose Your Weapon! </div>
       <!-- Left Box -->
       <div class="left-box">
         <p class="player">You</p>
         <span id="player-score-counter" class="player-score-counter"> 0 </span>
+
+        <img id="playerChoice" class="playerChoice" src="assets/svg/shield-question.svg" alt="PlayerChoice">
+
         <!-- Buttons -->
         <div class="btn-contaner">
           <div click="getResult()" id="button1" class="button1">
@@ -33,8 +37,21 @@
       <div class="right-box">
         <p class="player">Computer</p>
         <span id="computer-score-counter" class="computer-score-counter"> 0 </span>
+        <img id="computerChoice" class="computerChoice" src="assets/svg/shield-question.svg" alt="computerChoice">
       </div>
       <!-- End of Right Box -->
+
+      <!-- Overlay Modal -->
+      <div class="resetGameOverlay">
+        <h2 class="isGameDone">
+          You Lost!
+        </h2>
+        <div class="play-again">
+          Play Again
+        </div>
+      </div>
+      
+      <!-- End of Overlay Modal -->
     </div>
   </body>
   <script src="assets/js/index.js"></script>
