@@ -4,8 +4,12 @@ const scissorsBtn = document.querySelector("#button3");
 const playerScorePara = document.getElementById("player-score-counter");
 const computerScorePara = document.getElementById("computer-score-counter");
 const announceDiv = document.getElementById("announceDiv");
-const playerChoiceImg = document.getElementById("playerChoice")
-const computerChoiceImg = document.getElementById("computerChoice")
+const playerChoiceImg = document.getElementById("playerChoice");
+const computerChoiceImg = document.getElementById("computerChoice");
+const overlay = document.getElementById("overlay");
+const playAgainModal = document.getElementById("modal");
+const playAgainBtn = document.getElementById("play-again");
+const isGameDoneMsg = document.getElementById("isGameDone");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -13,6 +17,7 @@ let computerScore = 0;
 rockBtn.addEventListener("click", () => handleClick("ROCK"));
 paperBtn.addEventListener("click", () => handleClick("PAPER"));
 scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
+playAgainBtn.addEventListener("click", gameReset);
 
 function handleClick(playerSelect) {
   if (isGameOver()) {
@@ -33,25 +38,25 @@ function handleClick(playerSelect) {
 function getResult(playerSelect, computerSelect) {
   switch (playerSelect) {
     case "ROCK":
-      playerChoiceImg.src = "assets/svg/Landscape.svg"
+      playerChoiceImg.src = "assets/svg/Landscape.svg";
       break;
     case "PAPER":
-      playerChoiceImg.src = "assets/svg/Paper.svg"
+      playerChoiceImg.src = "assets/svg/Paper.svg";
       break;
     case "SCISSORS":
-      playerChoiceImg.src = "assets/svg/Scissor.svg"
+      playerChoiceImg.src = "assets/svg/Scissor.svg";
       break;
   }
 
   switch (computerSelect) {
     case "ROCK":
-      computerChoiceImg.src = "assets/svg/Landscape.svg"
+      computerChoiceImg.src = "assets/svg/Landscape.svg";
       break;
     case "PAPER":
-      computerChoiceImg.src = "assets/svg/Paper.svg"
+      computerChoiceImg.src = "assets/svg/Paper.svg";
       break;
     case "SCISSORS":
-      computerChoiceImg.src = "assets/svg/Scissor.svg"
+      computerChoiceImg.src = "assets/svg/Scissor.svg";
       break;
   }
 }
@@ -106,6 +111,24 @@ function isGameOver() {
 
 function setMessage() {
   return playerScore > computerScore
-    ? (announceDiv.textContent = "You Won!")
-    : (announceDiv.textContent = "Computer Won! try again!");
+    ? ((announceDiv.textContent = "You Won!"),
+      overlay.classList.add("active"),
+      playAgainModal.classList.add("active"),
+      (isGameDoneMsg.textContent = "You Won!"))
+    : ((announceDiv.textContent = "Computer Won! try again!"),
+      overlay.classList.add("active"),
+      playAgainModal.classList.add("active"),
+      (isGameDoneMsg.textContent = "You Lost!"));
+}
+
+function gameReset() {
+  playerScore = 0;
+  computerScore = 0;
+  updateScore();
+
+  playerChoiceImg.src = "assets/svg/shield-question.svg";
+  computerChoiceImg.src = "assets/svg/shield-question.svg";
+  playAgainModal.classList.remove("active");
+  overlay.classList.remove("active");
+  announceDiv.textContent = "Choose Your Weapon!";
 }

@@ -93,13 +93,38 @@ img{
 
 .resetGameOverlay{
     background-color: #9A32EF;
-    z-index: 3;
+    z-index: 4;
     top: 40%;
     position: fixed;
     /* height: 20vh; */
     width: 24vw;
     border-radius: 1.8rem;
+    transform: scale(0);
+    transition: 400ms ease-in-out;
 }
+
+.resetGameOverlay.active{
+    transform: scale(1);
+}
+
+#overlay{
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, .5);
+    transition: scale(1);
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
 
 .isGameDone{
     margin-top: 10px;
