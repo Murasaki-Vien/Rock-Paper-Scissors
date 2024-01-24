@@ -10,6 +10,7 @@ const overlay = document.getElementById("overlay");
 const playAgainModal = document.getElementById("modal");
 const playAgainBtn = document.getElementById("play-again");
 const isGameDoneMsg = document.getElementById("isGameDone");
+const gameSettings = document.getElementById("gameSettings");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -18,6 +19,7 @@ rockBtn.addEventListener("click", () => handleClick("ROCK"));
 paperBtn.addEventListener("click", () => handleClick("PAPER"));
 scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
 playAgainBtn.addEventListener("click", gameReset);
+gameSettings.addEventListener("click", openSettings)
 
 function handleClick(playerSelect) {
   if (isGameOver()) {
@@ -131,4 +133,8 @@ function gameReset() {
   playAgainModal.classList.remove("active");
   overlay.classList.remove("active");
   announceDiv.textContent = "Choose Your Weapon!";
+}
+
+function openSettings(){
+  overlay.classList.add("active")
 }
