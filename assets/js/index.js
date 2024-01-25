@@ -156,6 +156,7 @@ function closeSettings(){
 }
 
 function saveChanges(){
+  gameReset()
   if(playerName.value === ""){
     player.textContent = "You"
   }else{
