@@ -163,7 +163,7 @@ function saveChanges(){
     player.textContent = `${playerName.value}`;
   }
 
-  if(parseInt(changePoints.value) < 0 || parseInt(changePoints.value) === 0 || parseInt(changePoints.value) > 10 ){
+  if(parseInt(changePoints.value) <= 0 || parseInt(changePoints.value) > 10 ){
     alert(`Invalid Input "${changePoints.value}" the Number of Points must not be Less than 0 or Greater than 10!`)
     numpoints.textContent = "3"
   }else{
