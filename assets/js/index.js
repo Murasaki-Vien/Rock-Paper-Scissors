@@ -17,6 +17,7 @@ const player = document.getElementById("player");
 const playerName = document.getElementById("playerName");
 const numpoints = document.getElementById("numpoints");
 const changePoints = document.getElementById("changePoints");
+const saveChangesbtn = document.getElementById("saveChanges");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -28,9 +29,9 @@ scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
 playAgainBtn.addEventListener("click", gameReset);
 gameSettings.addEventListener("click", openSettings)
 closebtn.addEventListener("click", closeSettings)
+saveChangesbtn.addEventListener("click", saveChanges)
 
 function handleClick(playerSelect) {
-  console.log(pointsToWin)
   if (isGameOver()) {
     setMessage();
   }
@@ -150,7 +151,11 @@ function openSettings(){
 }
 
 function closeSettings(){
+  overlay.classList.remove("active")
+  gameSettingsModal.classList.remove("active")
+}
 
+function saveChanges(){
   if(playerName.value === ""){
     player.textContent = "You"
   }else{
@@ -163,7 +168,6 @@ function closeSettings(){
     pointsToWin = parseInt(changePoints.value);
     numpoints.textContent = `${changePoints.value}`
   }
-  
   overlay.classList.remove("active")
   gameSettingsModal.classList.remove("active")
 }
