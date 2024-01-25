@@ -19,7 +19,8 @@ body {
     justify-content: center;
 }
 
-.left-box, .right-box{
+.left-box,
+.right-box {
     height: calc(100vh - 4rem);
     width: 50vw;
     display: flex;
@@ -39,29 +40,32 @@ body {
 }
 
 /* Left and Right Box */
-.player{
+.player {
     font-weight: bold;
     font-size: 5.5vw;
 }
 
-.computer-score-counter, .player-score-counter{
+.computer-score-counter,
+.player-score-counter {
     color: #6E25AA;
     font-weight: bold;
     font-size: 5.5vw;
 }
 
-.btn-contaner{
+.btn-contaner {
     display: flex;
     justify-content: space-around;
     width: 60%;
 }
 
-img{
+img {
     width: 5vw;
     height: 7.5vh;
 }
 
-.button1, .button2, .button3{
+.button1,
+.button2,
+.button3 {
     display: flex;
     background-color: #D9D9D9;
     border-radius: 0.6rem;
@@ -75,7 +79,8 @@ img{
 
 /* End of Left and Right Box */
 
-.playerChoice, .computerChoice{
+.playerChoice,
+.computerChoice {
     margin-bottom: 0.9rem;
     padding: 0.5rem;
     background-color: azure;
@@ -84,14 +89,15 @@ img{
     height: 19.5vh;
 }
 
-.play-again, .resetGameOverlay{
+.play-again,
+.resetGameOverlay {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.resetGameOverlay{
+.resetGameOverlay {
     background-color: #9A32EF;
     z-index: 4;
     top: 40%;
@@ -103,11 +109,11 @@ img{
     transition: 400ms ease-in-out;
 }
 
-.resetGameOverlay.active{
+.resetGameOverlay.active {
     transform: scale(1);
 }
 
-#overlay{
+#overlay {
     position: fixed;
     z-index: 3;
     opacity: 0;
@@ -115,24 +121,24 @@ img{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0, .5);
+    background-color: rgba(0, 0, 0, .5);
     transition: scale(1);
     pointer-events: none;
 }
 
-#overlay.active{
+#overlay.active {
     opacity: 1;
     pointer-events: all;
 }
 
 
-.isGameDone{
+.isGameDone {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 2.3vw;
 }
 
-.play-again{
+.play-again {
     font-weight: 400;
     font-size: 2.1vw;
     border-radius: 1.2rem;
@@ -144,7 +150,7 @@ img{
     margin-bottom: 15px;
 }
 
-.announcer{
+.announcer {
     z-index: 2;
     padding: 0.4rem;
     border-radius: 0.5rem;
@@ -156,7 +162,7 @@ img{
     font-weight: 300;
 }
 
-.game-mechanics{
+.game-mechanics {
     z-index: 2;
     padding: 0.4rem;
     border-radius: 0.5rem;
@@ -168,7 +174,36 @@ img{
     font-weight: 400;
 }
 
-.settings{
+/* Settings Section */
+.settings-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.getDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.saveChanges{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4vw;
+    font-weight: 400;
+    background-color: #CD9652;
+    color: white;
+    width: 15vw;
+    height: 7vh;
+    border-radius: 1.063rem;
+    cursor: pointer;
+}
+
+.settings {
     z-index: 2;
     padding: 0.4rem;
     border-radius: 0.5rem;
@@ -178,3 +213,69 @@ img{
     font-weight: 400;
     cursor: pointer;
 }
+
+
+
+.gameSettingsModal {
+    z-index: 4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem;
+    /* designs */
+    background-color: #9A32EF;
+    border-radius: 4rem;
+    width: 753px;
+    max-width: 50%;
+    height: 602px;
+    max-height: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 400ms ease-in-out;
+}
+
+.gameSettingsModal.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.settingHeader {
+    font-size: 2.7vw;
+    margin-bottom: 1.4rem;
+}
+
+.closebtn {
+    height: 4vh;
+    width: 4vw;
+    cursor: pointer;
+    right: 30px;
+    position: fixed;
+}
+
+.howGameWorks {
+    display: flex;
+    align-items: center;
+}
+
+.settingsInfo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.changeName,
+.changePoints {
+    color: white;
+    font-size: 1vw;
+    padding-right: 0.4rem;
+}
+
+.console {
+    height: 3vh;
+    width: 4vw;
+    margin-right: 5px;
+}
+
+/* end of settings section */

@@ -7,21 +7,30 @@ const announceDiv = document.getElementById("announceDiv");
 const playerChoiceImg = document.getElementById("playerChoice");
 const computerChoiceImg = document.getElementById("computerChoice");
 const overlay = document.getElementById("overlay");
-const playAgainModal = document.getElementById("modal");
+const playAgainModal = document.getElementById("playAgainModal");
 const playAgainBtn = document.getElementById("play-again");
 const isGameDoneMsg = document.getElementById("isGameDone");
 const gameSettings = document.getElementById("gameSettings");
+const gameSettingsModal = document.getElementById("gameSettingsModal");
+const closebtn = document.getElementById("closebtn");
+const player = document.getElementById("player");
+const playerName = document.getElementById("playerName");
+const numpoints = document.getElementById("numpoints");
+const changePoints = document.getElementById("changePoints");
 
 let playerScore = 0;
 let computerScore = 0;
+let pointsToWin = 3;
 
 rockBtn.addEventListener("click", () => handleClick("ROCK"));
 paperBtn.addEventListener("click", () => handleClick("PAPER"));
 scissorsBtn.addEventListener("click", () => handleClick("SCISSORS"));
 playAgainBtn.addEventListener("click", gameReset);
 gameSettings.addEventListener("click", openSettings)
+closebtn.addEventListener("click", closeSettings)
 
 function handleClick(playerSelect) {
+  console.log(pointsToWin)
   if (isGameOver()) {
     setMessage();
   }
@@ -108,7 +117,7 @@ function updateScore() {
 }
 
 function isGameOver() {
-  return playerScore === 3 || computerScore === 3;
+  return playerScore === pointsToWin || computerScore === pointsToWin;
 }
 
 function setMessage() {
@@ -137,4 +146,24 @@ function gameReset() {
 
 function openSettings(){
   overlay.classList.add("active")
+  gameSettingsModal.classList.add("active")
+}
+
+function closeSettings(){
+
+  if(playerName.value === ""){
+    player.textContent = "You"
+  }else{
+    player.textContent = `${playerName.value}`;
+  }
+
+  if(parseInt(changePoints.value) === 0){
+    numpoints.textContent = "3"
+  }else{
+    pointsToWin = parseInt(changePoints.value);
+    numpoints.textContent = `${changePoints.value}`
+  }
+  
+  overlay.classList.remove("active")
+  gameSettingsModal.classList.remove("active")
 }

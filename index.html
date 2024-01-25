@@ -17,7 +17,7 @@
       
       <!-- Left Box -->
       <div class="left-box">
-        <p class="player">You</p>
+        <p id="player" class="player">You</p>
         <span id="player-score-counter" class="player-score-counter"> 0 </span>
 
         <img id="playerChoice" class="playerChoice" src="assets/svg/shield-question.svg" alt="PlayerChoice">
@@ -48,13 +48,13 @@
 
       <!-- First to reach num of score wins -->
       <div id="class="game-mechanics"" class="game-mechanics">
-        First to score 3 points wins the game 
+        First to score <span id="numpoints">3</span> points wins the game 
       </div>
       <!-- end of First to reach num of score wins -->
 
       <!-- Overlay Modal -->
       <div id="overlay"></div>
-      <div class="resetGameOverlay " id="modal">
+      <div class="resetGameOverlay" id="playAgainModal">
         <h2 class="isGameDone" id="isGameDone">
         </h2>
         <div id="play-again" class="play-again">
@@ -64,8 +64,40 @@
       <!-- End of Overlay Modal -->
 
       <!-- settings Overlay with Modal -->
-      
-      <!-- end ofsettings Overlay with Modal -->
+      <div id="gameSettingsModal" class="gameSettingsModal">
+        <h3 class="settingHeader">
+          Settings
+        </h3>
+        <img src="assets/svg/closeBtn.svg" alt="closeButton" class="closebtn" id="closebtn">
+        <div class="settings-container">
+         <div class="gameMechan">
+          <div class="howGameWorks">
+            <img src="assets/svg/console.svg" alt="consoleIcon" class="console">
+            <p class="settingsInfo">Player selects a gesture (Rock, Paper, or Scissors)</p>
+          </div>
+          <div class="howGameWorks">
+            <img src="assets/svg/console.svg" alt="consoleIcon" class="console">
+            <p class="settingsInfo">Computer randomly selects one of the gestures.</p>
+          </div>
+         </div>
+  
+          <div class="getDetails">
+            <div class="howGameWorks">
+              <p class="changeName">Player Name:</p>
+              <input type="text" id="playerName" class="playerName" value="You">
+            </div>
+            <div class="howGameWorks">
+              <p class="changeName">Number of Points:</p>
+              <input type="number" id="changePoints" class="needPoints" value="0">
+            </div>
+          </div>
+          <div id="saveChanges" class="saveChanges">
+            Save Changes
+          </div>
+        </div>
+
+      </div>
+      <!-- end of settings Overlay with Modal -->
     </div>
   </body>
   <script src="assets/js/index.js"></script>
