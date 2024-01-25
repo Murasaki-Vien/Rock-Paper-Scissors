@@ -165,6 +165,7 @@ function saveChanges(){
 
   if(parseInt(changePoints.value) <= 0 || parseInt(changePoints.value) > 10 ){
     alert(`Invalid Input "${changePoints.value}" the Number of Points must not be Less than 0 or Greater than 10!`)
+    pointsToWin = 3;
     numpoints.textContent = "3"
   }else{
     pointsToWin = parseInt(changePoints.value);
